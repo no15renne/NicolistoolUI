@@ -69,9 +69,11 @@
           return this.items;
         }
         let res = this.items.filter(item => {
-          return item.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+          const word = this.search.toLowerCase();
+          const likeTitle = item.title.toLowerCase().indexOf(word) > -1;
+          const likeTags  = item.tags.some(tag => tag.toLowerCase().indexOf(word) > -1);
+          return likeTitle || likeTags;
         })
-        console.log(res);
         return res;
       }
     }
