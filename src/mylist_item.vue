@@ -3,7 +3,9 @@
     <div class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail" v-lazy-container="{ selector: 'img' }">
-          <img :data-src=item.thumbnail_url width="320" height="180">
+          <a :href="getUrl(item.video_id)" target="_blank" rel="noopener">
+            <img :data-src=item.thumbnail_url width="320" height="180">
+          </a>
         </div>
         <div class="video-title">{{ item.title }}</div>
         <div class="video-tags">
