@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>{{ mylistName }}</h2>
-    <input type="text" v-model="mylistItemSearch">
+    <h2 class="mylist-name">{{ mylistName }}</h2>
+    <input class="mylist-contents-search" type="text" v-model="mylistItemSearch">
     <div id="grid" class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail">
@@ -20,13 +20,26 @@
 </template>
 
 <style>
+.mylist-name {
+  color: #e3eddb;
+  margin-left: 16px;
+}
+.mylist-contents-search {
+  height: 36px;
+  margin: 0px 0px 16px 16px;
+  width: 80%;
+  border-radius: 6px;
+  border: none;
+}
 .mylist-contents-list {
 }
 .mylist-contents {
   width: 320px;
+  height: 380px;
   margin: 3px;
+  background-color: #1c1c1c;
   border-radius: 20px;
-  box-shadow: 0 0 2px rgba(0,0,0,.1);
+  /*box-shadow: 0 0 2px rgba(0,0,0,.1);*/
 }
 .video-thumbnail {
   width: 320px;
@@ -36,6 +49,7 @@
   border-radius: 20px 20px 0px 0px;
 }
 .video-title {
+  color: #e3eddb;
   padding: 6px;
 }
 .video-tags {
@@ -46,7 +60,7 @@
 .video-tag {
   padding: 3px;
   font-size: 0.7em;
-  color: rgba(0, 0, 0, .3);
+  color: rgba(227, 239, 217, .8);
 }
 </style>
 
