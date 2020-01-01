@@ -21,7 +21,10 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', function(event) {
   console.log('fetch', event.request.url);
-
+  if (event.request.url.indexOf('dist/build.js') > -1) {
+    console.log('no cache', event.request.url);
+    return;
+  }
   event.respondWith(
     // リクエストに一致するデータがキャッシュにあるかどうか
     caches.match(event.request).then(function(cacheResponse) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="grid" class="mylist-contents-list">
+    <div class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail" v-lazy-container="{ selector: 'img' }">
           <img :data-src=item.thumbnail_url width="320" height="180">
@@ -24,6 +24,8 @@
 }
 
 .mylist-contents-list {
+  display: flex;
+  flex-flow: wrap;
 }
 .mylist-contents {
   width: 320px;
@@ -78,9 +80,6 @@
       if (this.mylistId) {
         this.fetchData(this.mylistId);
       }
-    },
-    updated: function() {
-      $('#grid').masonry('reloadItems').masonry();
     },
     watch: {
       mylistId: function(newMylistId, oldMylistId){
