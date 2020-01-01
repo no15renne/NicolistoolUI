@@ -2,7 +2,7 @@ import 'babel-polyfill'
 const axiosBase = require('axios');
 
 const axios = axiosBase.create({
-  baseURL: 'http://localhost:9000',
+  baseURL: 'http://localhost',
   headers: {
     'ContentType': 'application/x-www-form-urlencoded'
   },

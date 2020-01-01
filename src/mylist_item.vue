@@ -2,8 +2,8 @@
   <div>
     <div id="grid" class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
-        <div class="video-thumbnail">
-          <img :src=item.thumbnail_url width="320" height="180">
+        <div class="video-thumbnail" v-lazy-container="{ selector: 'img' }">
+          <img :data-src=item.thumbnail_url width="320" height="180">
         </div>
         <div class="video-title">{{ item.title }}</div>
         <div class="video-tags">
@@ -59,6 +59,7 @@
 <script>
   import 'babel-polyfill';
   import NocoLisToolClient from './util/nicolistool_client';
+
   const client = new NocoLisToolClient();
 
   module.exports = {
