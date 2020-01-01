@@ -38,6 +38,12 @@
   color: #e3eddb;
   font-size: 1em;
 }
+
+.mylist-contents-search {
+  width: 50%;
+  border-radius: 6px;
+  border: none;
+}
 </style>
 
 <script>

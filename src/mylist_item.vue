@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--<h2 class="mylist-name">{{ mylistName }}</h2>-->
     <div id="grid" class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail">
