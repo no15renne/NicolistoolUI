@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2 class="mylist-name">{{ mylistName }}</h2>
-    <input class="mylist-contents-search" type="text" v-model="mylistItemSearch">
+    <!--<h2 class="mylist-name">{{ mylistName }}</h2>-->
     <div id="grid" class="mylist-contents-list">
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail">
@@ -24,13 +23,7 @@
   color: #e3eddb;
   margin-left: 16px;
 }
-.mylist-contents-search {
-  height: 36px;
-  margin: 0px 0px 16px 16px;
-  width: 80%;
-  border-radius: 6px;
-  border: none;
-}
+
 .mylist-contents-list {
 }
 .mylist-contents {
@@ -72,7 +65,8 @@
   module.exports = {
     props: {
       'mylistId'  : String,
-      'mylistName': String
+      'mylistName': String,
+      'mylistFilterWord': String
     },
     data: function() {
       return {
@@ -110,11 +104,11 @@
     },
     computed: {
       filteredItems() {
-        if (this.mylistItemSearch === "") {
+        if (this.mylistFilterWord === "") {
           return this.items;
         }
         return this.items.filter(item => {
-          const word = this.mylistItemSearch.toLowerCase();
+          const word = this.mylistFilterWord.toLowerCase();
           const likeTitle = item.title.toLowerCase().indexOf(word) > -1;
           const likeTags  = item.tags.some(tag => tag.toLowerCase().indexOf(word) > -1);
           return likeTitle || likeTags;
