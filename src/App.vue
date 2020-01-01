@@ -16,8 +16,7 @@
 
 <style>
 .dummy-header {
-  height: 28px;
-  padding: 12px;
+  height: 40px;
 }
 </style>
 

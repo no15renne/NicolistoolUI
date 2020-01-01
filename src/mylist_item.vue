@@ -32,7 +32,7 @@
   margin: 3px;
   background-color: #1c1c1c;
   border-radius: 20px;
-  /*box-shadow: 0 0 2px rgba(0,0,0,.1);*/
+  box-shadow: 0 0 2px rgba(180, 207, 158, .3);
 }
 .video-thumbnail {
   width: 320px;

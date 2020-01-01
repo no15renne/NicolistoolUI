@@ -30,6 +30,7 @@
   transform: translateY(0);
   transition: transform 0.3s ease;
   background-color: #1c1c1c;
+  box-shadow: 0 0 2px rgba(180, 207, 158, .3);
 }
 .header {
   height: 36px;
