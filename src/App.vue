@@ -1,6 +1,6 @@
 <template>
     <div>
-    <mylist-component
+    <header-component
       v-model="mylistFilterWord"
       :selectedMylistName=selectedMylistName
       :updateSelectedMylist=updateSelectedMylist
@@ -22,7 +22,9 @@
 
 <script>
   import 'babel-polyfill';
-  import MylistComponent     from './mylist.vue';
+
+  /* components */
+  import HeaderComponent     from './header.vue';
   import MylistItemComponent from './mylist_item.vue';
 
   module.exports = {
@@ -34,7 +36,7 @@
       }
     },
     components: {
-      'mylist-component': MylistComponent,
+      'header-component': HeaderComponent,
       'mylist-item-component': MylistItemComponent
     },
     methods: {
