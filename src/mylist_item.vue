@@ -4,7 +4,7 @@
       <div class="mylist-contents" v-for="item in filteredItems" :key="item.video_id">
         <div class="video-thumbnail" v-lazy-container="{ selector: 'img' }">
           <a :href="getUrl(item.video_id)" target="_blank" rel="noopener">
-            <img :data-src=item.thumbnail_url width="320" height="180">
+            <img :data-src="getThumbnailUrl(item.thumbnail_url)" width="320" height="180">
           </a>
         </div>
         <div class="video-title">{{ item.title }}</div>
@@ -101,6 +101,9 @@
       },
       getUrl: function(id) {
         return `https://www.nicovideo.jp/watch/${id}`;
+      },
+      getThumbnailUrl: function(url) {
+        return url.replace(/http/, "https");
       }
     },
     computed: {
