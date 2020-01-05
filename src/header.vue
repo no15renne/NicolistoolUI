@@ -47,7 +47,6 @@
 </style>
 
 <script>
-  import 'babel-polyfill';
   import NocoLisToolClient from './util/nicolistool_client';
 
   /* components */
@@ -55,14 +54,15 @@
 
   const client = new NocoLisToolClient();
 
-  module.exports = {
+  export default {
     props: {
       selectedMylistName: String,
       updateSelectedMylist: Function
     },
     data: function() {
       return {
-        title: "NicolistoolUI"
+        title: "NicolistoolUI",
+        mylistFilterWord: ''
       }
     },
     components: {

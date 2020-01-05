@@ -21,13 +21,11 @@
 </style>
 
 <script>
-  import 'babel-polyfill';
-
   /* components */
   import HeaderComponent     from './header.vue';
   import MylistItemComponent from './mylist_item.vue';
 
-  module.exports = {
+  export default {
     data: function() {
       return {
         selectedMylistId: "",

@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 const axiosBase = require('axios');
 
 const axios = axiosBase.create({

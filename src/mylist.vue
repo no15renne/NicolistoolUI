@@ -48,12 +48,11 @@
 </style>
 
 <script>
-  import 'babel-polyfill';
   import NocoLisToolClient from './util/nicolistool_client';
 
   const client = new NocoLisToolClient();
 
-  module.exports = {
+  export default {
     props: {
       selectedMylistName: String,
       updateSelectedMylist: Function
