@@ -23,7 +23,6 @@ export default class {
     .catch(function(error) {
       console.log('ERROR!! happend by Backend.');
     });
-    console.log('response', res);
     return res;
   };
 
@@ -35,7 +34,6 @@ export default class {
     .catch(function(error) {
       console.log('ERROR!! happend by Backend.');
     });
-    console.log('response', res);
     return res;
   };
 
@@ -47,7 +45,19 @@ export default class {
     .catch(function(error) {
       console.log('ERROR!! happend by Backend.');
     });
-    console.log('response', res);
+    return res;
+  }
+
+  async getVideosTags(videoIds) {
+    const idsQuery = videoIds.map(id => `ids=${id}`).join('&');
+    console.log('idsQuery', idsQuery);
+    const res = await axios.get(`/api/v1/videos/tags?${idsQuery}`)
+    .then(function(response) {
+      return response.data;
+    })
+    .catch(function(error) {
+      console.log('ERROR!! happend by Backend.');
+    });
     return res;
   }
 }

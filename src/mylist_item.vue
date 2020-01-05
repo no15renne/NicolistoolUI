@@ -98,9 +98,12 @@
     methods: {
       fetchData: async function(myListId) {
         const response = await client.getMyListItems(myListId);
-        await Promise.all(response.map(async res => {
-          const tags_info = await client.getVideoTags(res.video_id.slice(2));
-          res.tags = tags_info.tags;
+        const split = (array, n) => array.reduce( (acc, c, i) => i % n ? acc : [ ...acc, array.slice(i, i + n )], []);
+        await Promise.all(split(response, 100).flatMap(async resArr => {
+          const tags_infos = await client.getVideosTags(resArr.map(res => res.video_id.slice(2)));
+          for (let i = 0; i < resArr.length; i++) {
+            resArr[i].tags = tags_infos[i];
+          }
         }));
         this.items = response;
       },
